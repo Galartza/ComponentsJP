@@ -1,0 +1,97 @@
+.containerSwitch {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    padding-top: 2rem;
+  }
+  
+  .switch {
+    --_switch-bg-clr: #0a9396;
+    --_slider-bg-clr: rgba(0, 95, 115, 1); /* Nuevo color */
+    --_slider-bg-clr-on: rgba(0, 95, 115, 1); /* Nuevo color */
+    --_label-padding: 0.40rem;
+    --_switch-padding: 2px;
+    --_switch-easing: cubic-bezier(0.47, 1.64, 0.41, 0.8);
+    --_slider-width: 3rem;
+  
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    position: relative;
+    border-radius: 9999px;
+    cursor: pointer;
+    width: 12rem;
+    background-color: var(--_switch-bg-clr);
+    padding: var(--_switch-padding);
+    height: var(--_slider-width);
+  }
+  
+  .switch input[type="checkbox"] {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+  }
+  
+  .label {
+    display: grid;
+    place-content: center;
+    color: #fff;
+    padding: var(--_label-padding);
+    transition: opacity 300ms ease-in-out 150ms;
+    z-index: 1;
+    margin-left: .5rem;
+  }
+  
+  .switchIndicator {
+    position: absolute;
+    width: 50%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    background-color: var(--_slider-bg-clr);
+    border-radius: 9999px;
+    border: solid 2px #94d2bd;
+    transition: background-color 500ms var(--_switch-easing);
+  }
+  
+  @keyframes slideToRight {
+    from {
+      left: 0;
+    }
+    to {
+      left: 50%;
+    }
+  }
+  
+  @keyframes slideToLeft {
+    from {
+      left: 50%;
+    }
+    to {
+      left: 0;
+    }
+  }
+  
+  .switch input:checked ~ .switchIndicator {
+    background-color: var(--_slider-bg-clr-on);
+    animation: slideToRight 500ms var(--_switch-easing) forwards;
+  }
+  
+  .switch input:not(:checked) ~ .switchIndicator {
+    background-color: var(--_slider-bg-clr);
+    animation: slideToLeft 500ms var(--_switch-easing) forwards;
+  }
+  
+  .switch input:checked ~ .label:last-of-type {
+    opacity: 1;
+  }
+  
+  .switch input:not(:checked) ~ .label:first-of-type {
+    opacity: 1;
+  }
+  
