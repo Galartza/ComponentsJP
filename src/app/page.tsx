@@ -2,10 +2,11 @@
 // import ButtonSocialRedes from "@/components/ButtonSocialRedes/ButtonSocialRedes";
 // import LoaderSharingan from "@/components/LoaderSharingan/LoaderSharingan";
 // import Mangekyou from "@/components/Mangekio/Mangekyou";
+// import CardHover from "@/components/CardHover/CardHover";
 
 
 
-import CardHover from "@/components/CardHover/CardHover";
+import InputSearch from "@/components/InputSearch/InputSearch";
 import Image from "next/image";
 
 export default function Home() {
@@ -15,7 +16,8 @@ export default function Home() {
      {/* <ButtonSocialRedes/> */}
       {/* <LoaderSharingan/> */}
       {/* <Mangekyou /> */}
-      <CardHover/>
+      {/* <CardHover/> */}
+      <InputSearch/>
     </div>
   );
 }
